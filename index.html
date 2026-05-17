@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lời Chúc Dễ Thương</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+      background: #ffd6e7;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.6);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(255,192,203,0.4), rgba(255,255,255,0.2));
+      z-index: -1;
+    }
+
+    .photo-strip {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      z-index: 2;
+      padding: 10px;
+    }
+
+    .photo-strip img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 3px solid white;
+      box-shadow: 0 0 15px rgba(255,255,255,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-strip img:hover {
+      transform: scale(1.08);
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .message {
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+      animation: float 3s ease-in-out infinite;
+      max-width: 900px;
+      line-height: 1.5;
+    }
+
+    .sub {
+      margin-top: 20px;
+      color: #fff;
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    .rainbow {
+      position: absolute;
+      width: 80px;
+      animation: fall linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      from {
+        transform: translateY(-100px) rotate(0deg);
+      }
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop class="video-bg">
+    <source src="https://cdn.pixabay.com/video/2022/08/03/126622-736147277_large.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="photo-strip">
+    <img src="1.png" alt="ảnh 1">
+    <img src="2.png" alt="ảnh 2">
+    <img src="3.png" alt="ảnh 3">
+    <img src="4.png" alt="ảnh 4">
+    <img src="5.png" alt="ảnh 5">
+  </div>
+
+  <div class="container">
+    <div class="message">
+      Mong cậu đỗ NV1 nha 💖🎂🌈
+    </div>
+
+    <div class="sub">
+      Chúc mọi điều tốt đẹp sẽ đến với cậu ✨
+    </div>
+  </div>
+
+  <script>
+    const emojis = ['🌈','🎂','💖','✨'];
+
+    for(let i = 0; i < 30; i++) {
+      const item = document.createElement('div');
+      item.classList.add('rainbow');
+      item.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+      item.style.left = Math.random() * 100 + 'vw';
+      item.style.fontSize = (Math.random() * 30 + 25) + 'px';
+      item.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      item.style.animationDelay = Math.random() * 5 + 's';
+
+      document.body.appendChild(item);
+    }
+  </script>
+</body>
+</html>
+
